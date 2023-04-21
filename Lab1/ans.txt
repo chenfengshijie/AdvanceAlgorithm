@@ -1,0 +1,124 @@
+﻿num_of_hashfunc:10
+precision:0.471666
+recall:0.86737
+
+ num_of_hashfunc:20
+precision:0.845589
+recall:0.866058
+
+ num_of_hashfunc:30
+precision:0.926444
+recall:0.929666
+
+ num_of_hashfunc:40
+precision:0.903795
+recall:0.958465
+
+ num_of_hashfunc:50
+precision:0.994321
+recall:0.971998
+
+ num_of_hashfunc:60
+precision:0.997606
+recall:0.992678
+
+ num_of_hashfunc:70
+precision:0.997816
+recall:0.954388
+
+ num_of_hashfunc:80
+precision:0.999623
+recall:0.999435
+
+ num_of_hashfunc:90
+precision:0.99995
+recall:0.999351
+
+ num_of_hashfunc:100
+precision:0.999991
+recall:0.999774
+
+
+
+ num_of_hashfunc:10
+precision:1
+recall:1
+
+ num_of_hashfunc:20
+precision:1
+recall:0.999999
+
+ num_of_hashfunc:30
+precision:1
+recall:1
+
+ num_of_hashfunc:40
+precision:1
+recall:1
+
+ num_of_hashfunc:50
+precision:1
+recall:1
+
+ num_of_hashfunc:60
+precision:1
+recall:1
+
+ num_of_hashfunc:70
+precision:1
+recall:1
+
+ num_of_hashfunc:80
+precision:1
+recall:1
+
+ num_of_hashfunc:90
+precision:1
+recall:1
+
+ num_of_hashfunc:100
+precision:1
+recall:1
+
+��ʱ��934s
+ num_of_hashfunc:10
+precision:0.97904
+recall:0.770157
+
+ num_of_hashfunc:20
+precision:0.99662
+recall:0.88755
+
+ num_of_hashfunc:30
+precision:0.99856
+recall:0.971282
+
+ num_of_hashfunc:40
+precision:0.999402
+recall:0.989584
+
+ num_of_hashfunc:50
+precision:0.999758
+recall:0.996602
+
+ num_of_hashfunc:60
+precision:0.99993
+recall:0.999627
+
+ num_of_hashfunc:70
+precision:0.999934
+recall:0.99931
+
+ num_of_hashfunc:80
+precision:0.999973
+recall:0.99991
+
+ num_of_hashfunc:90
+precision:0.99998
+recall:0.999999
+
+ num_of_hashfunc:100
+precision:0.999989
+recall:0.999951
+
+time:443s,
