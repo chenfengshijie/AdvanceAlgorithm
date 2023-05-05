@@ -133,6 +133,14 @@
   <ItemGroup>
     <ClInclude Include="Lab2.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="plot.py" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Debug\experiments.txt" />
+    <Text Include="..\Debug\experiment_quicksort.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
