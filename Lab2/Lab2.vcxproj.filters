@@ -28,8 +28,15 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="tmp.md">
+    <None Include="README.md" />
+    <None Include="plot.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Debug\experiment_quicksort.txt">
       <Filter>资源文件</Filter>
-    </None>
+    </Text>
+    <Text Include="..\Debug\experiments.txt">
+      <Filter>资源文件</Filter>
+    </Text>
   </ItemGroup>
 </Project>
