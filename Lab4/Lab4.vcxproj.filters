@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Lab1.cpp">
+    <ClCompile Include="Lab4.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
@@ -23,30 +23,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lab1.h">
+    <ClInclude Include="lab4.h">
       <Filter>头文件</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="E1_AOL-out.txt">
-      <Filter>资源文件</Filter>
-    </Text>
-    <Text Include="E1_Booking-out.txt">
-      <Filter>资源文件</Filter>
-    </Text>
-    <Text Include="E1_kosarak_100k.txt">
-      <Filter>资源文件</Filter>
-    </Text>
-    <Text Include="experiments.txt">
-      <Filter>资源文件</Filter>
-    </Text>
-    <Text Include="ans.txt">
-      <Filter>资源文件</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="plot.py">
-      <Filter>源文件</Filter>
-    </None>
   </ItemGroup>
 </Project>
