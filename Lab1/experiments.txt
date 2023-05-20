@@ -1,4 +1,5 @@
-﻿num_of_hashfunc:10
+﻿AOL:
+num_of_hashfunc:10
 precision:0.471666
 recall:0.86737
 
@@ -38,7 +39,9 @@ recall:0.999351
 precision:0.999991
 recall:0.999774
 
+time:1508s
 
+Booking:
 
  num_of_hashfunc:10
 precision:1
@@ -80,7 +83,9 @@ recall:1
 precision:1
 recall:1
 
-��ʱ��934s
+time:934s
+
+100k:
  num_of_hashfunc:10
 precision:0.97904
 recall:0.770157

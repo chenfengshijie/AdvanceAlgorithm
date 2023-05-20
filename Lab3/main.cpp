@@ -14,30 +14,35 @@ using std::cout;
 using std::endl;
 int main()
 {
-     srand(static_cast<unsigned>(time(0)));
-     SkipList<int> skip_list(4, 0.5);
+    {
+	        //srand(static_cast<unsigned>(time(0)));
+     //SkipList<int> skip_list(4, 0.5);
 
-     skip_list.insert(3);
-     skip_list.insert(6);
-     skip_list.insert(7);
-     skip_list.insert(9);
-     skip_list.insert(12);
-     skip_list.insert(19);
-     skip_list.insert(17);
+     //skip_list.insert(3);
+     //skip_list.insert(6);
+     //skip_list.insert(7);
+     //skip_list.insert(9);
+     //skip_list.insert(12);
+     //skip_list.insert(19);
+     //skip_list.insert(17);
 
-     skip_list.display();
+     //skip_list.display();
 
-     cout << "Search 7: " << (skip_list.search(7) ? "Found" : "Not found") << endl;
-     cout << "Search 4: " << (skip_list.search(4) ? "Found" : "Not found") << endl;
+     //cout << "Search 7: " << (skip_list.search(7) ? "Found" : "Not found") << endl;
+     //cout << "Search 4: " << (skip_list.search(4) ? "Found" : "Not found") << endl;
 
-     skip_list.delete_key(7);
-     if (skip_list.search(7))
-         printf("false");
-     cout << "After deleting 7" << endl;
-     skip_list.display();
-
+     //skip_list.delete_key(7);
+     //if (skip_list.search(7))
+     //    printf("false");
+     //cout << "After deleting 7" << endl;
+     //skip_list.display();
+    
     //BloomFilter bf;
-    //bf.add(12);
+    //bf.add(12); 
+    }
 
+	//run_experiment1();
+
+    run_experiment2();
     return 0;
 }
