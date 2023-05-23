@@ -5,8 +5,8 @@
 
 struct Edge
 {
-    int u, v;
-    double weight;
+	int u, v;
+	double weight;
 };
 /**
  * @brief generate a n full graph
@@ -19,14 +19,14 @@ std::vector<Edge> generateRandomGraph(int n);
  * @brief kruskal to compute min-generate tree
  *
  * @param graph the graph
- * @param n
+ * @param n the num of point
  * @return double the tot val of mgt
  */
-double kruskal(std::vector<Edge> &graph, int n);
+double kruskal(std::vector<Edge>& graph, int n);
 /**
  * @brief print the info of a graph
  *
- * @param graph
+ * @param graph the paragarph to be printed
  */
-void printGraph(const std::vector<Edge> &graph);
+void printGraph(const std::vector<Edge>& graph);
 #endif
