@@ -1,9 +1,10 @@
 #pragma once
 #include <unordered_map>
 #include <vector>
+#include<fstream>
 class Table;
 class DataBase;
-void read_data(const char* file_name, Table& table);
+void read_data(std::string file_name, Table& table);
 
 class Table
 {
@@ -31,13 +32,18 @@ public:
 	std::vector<Table> database;
 	int n;
 
-	DataBase(int num_table, const char** file_name) :n(num_table)
+	/**
+	 * \brief initial class
+	 * \param num_table the num of files
+	 * \param files a list of file names
+	 */
+	DataBase(int num_table, std::vector<std::string> files) :n(num_table)
 	{
 		database.reserve(num_table);
 		for (int i = 0; i < num_table; i++)
 		{
 			database.emplace_back(Table(1000));
-			read_data(*(file_name + i), database[i]);
+			read_data(files[i], database[i]);
 		}
 		exact_weight(database);
 	}

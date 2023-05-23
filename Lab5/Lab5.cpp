@@ -8,7 +8,7 @@
 #include<numeric>
 #include<random>
 
-void read_data(const char* file_name, Table& table)
+void read_data(std::string file_name, Table& table)
 {
 	std::ifstream fin;
 	fin.open(file_name, std::ios_base::in);
