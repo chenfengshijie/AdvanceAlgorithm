@@ -3,7 +3,9 @@
 #include<iostream>
 #include<fstream>
 
-int main(int argc,char** argv)
+#include <vector>
+
+int main() 
 {
-	
+    return 0;
 }

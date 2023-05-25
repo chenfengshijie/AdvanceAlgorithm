@@ -10,7 +10,7 @@ class Table
 {
 
 public:
-	std::vector<int> weight;
+	std::vector<double> weight;
 	std::vector<std::pair<int, int>> data;
 	std::unordered_multimap<int, int>value2id;
 
@@ -24,7 +24,7 @@ public:
 		weight.reserve(tot);
 		value2id.reserve(tot);
 	}
-	~Table();
+	~Table() = default;
 };
 class DataBase
 {
@@ -37,15 +37,20 @@ public:
 	 * \param num_table the num of files
 	 * \param files a list of file names
 	 */
-	DataBase(int num_table, std::vector<std::string> files) :n(num_table)
+	DataBase(int num_table, std::vector<std::string>& files,std::string& method) :n(num_table)
 	{
+		
 		database.reserve(num_table);
 		for (int i = 0; i < num_table; i++)
 		{
 			database.emplace_back(Table(1000));
 			read_data(files[i], database[i]);
+			database[i].weight.resize(database[i].data.size(),0.0);
 		}
-		exact_weight(database);
+		if(method=="exact_weight")
+			exact_weight(database);
+		else if(method=="olken_weight")
+			olken_weight(database);
 	}
 	~DataBase() = default;
 
@@ -61,5 +66,23 @@ private:
 	 * \param database the chain database to be compute 
 	 */
 	static void olken_weight(std::vector<Table>& database);
-	static void random_walk(std::vector<Table>& database);
+};
+
+class RandomWalkDataBase:public DataBase
+{
+public:
+	RandomWalkDataBase(int num_table,std::vector<std::string>&files,std::string& method):DataBase(num_table,files,method)
+	{
+		for(int i=0;i<num_table;i++)
+		{
+			walk_times.emplace_back(database[i].data.size(),0);
+		}
+	};
+	~RandomWalkDataBase()=default;
+	void random_walk(int times);
+	void sample();
+private:
+	std::vector<std::vector<int>>walk_times;
+	double get_weight(int id_table,int col,int thresh);
+	double walk_step(int id_table,int col,int method);
 };

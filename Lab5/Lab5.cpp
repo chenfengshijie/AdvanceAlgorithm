@@ -1,4 +1,4 @@
-﻿// ReSharper disable CppClangTidyBugproneNarrowingConversions
+﻿
 #include"Lab5.h"
 #include<vector>
 #include<unordered_map>
@@ -66,13 +66,7 @@ void DataBase::olken_weight(std::vector<Table>& database)
 	}
 	return;
 }
-//TODO : implemte random walk
-void DataBase::random_walk(std::vector<Table>& database)
-{
-	const auto n = database.size();
-	database[n - 1].weight.assign(database[n - 1].data.size(), 1);
 
-}
 
 std::vector<int> DataBase::sample()
 {
@@ -103,3 +97,94 @@ std::vector<int> DataBase::sample()
 	return ans;
 }
 
+
+double RandomWalkDataBase::walk_step(int id_table, int col, int method)
+{
+	if (id_table == n - 2)
+	{
+		int val = database[id_table].data[col].second;
+		auto cnt = database[id_table + 1].value2id.equal_range(val);
+		int count = std::distance(cnt.first, cnt.second);
+		database[id_table].weight[col] = count;
+		return count;
+	}
+	else
+	{
+		int val = database[id_table].data[col].second;
+		auto cnt = database[id_table + 1].value2id.equal_range(val);
+		int count = std::distance(cnt.first, cnt.second);
+		auto sample_way = [&](int method)->int
+		{
+			if (method == 0)
+			{
+				//在随机游走中使用下述获得抽样结果
+				int choice = rand() % std::distance(cnt.first, cnt.second);
+				return std::next(cnt.first, choice)->second;
+			}
+			else
+			{
+				//在实际抽样中使用下列函数获得抽样结果
+				std::vector<double>sample_weight;
+				for (auto iter = cnt.first; iter != cnt.second; iter++)
+				{
+					sample_weight.push_back(database[id_table + 1].weight[iter->second]);
+				}
+				std::random_device rd;
+				std::mt19937 gen(rd());
+				std::discrete_distribution<int>dis(sample_weight.begin(), sample_weight.end());
+				return std::next(cnt.first, dis(gen))->second;
+			}
+		};
+		int index = sample_way(method);
+		walk_times[id_table][col]++;
+		walk_step(id_table + 1, index, method);
+		double tot = 0;
+		int tmp = 0;
+		for (auto i = cnt.first; i != cnt.second; ++i)
+		{
+			if (database[id_table + 1].weight[i->second] != 0)
+			{
+				tmp++;
+				tot += database[id_table + 1].weight[i->second];
+			}
+		}
+		database[id_table].weight[col] = tot / tmp * count;
+		return database[id_table].weight[col];
+	}
+}
+
+void RandomWalkDataBase::random_walk(int times)
+{
+	for (int i = 0; i < times; i++)
+	{
+		int choice = rand() % database[0].data.size();
+		walk_times[0][choice]++;
+		walk_step(0, choice, 0);
+	}
+}
+
+double RandomWalkDataBase::get_weight(int id_table, int col, int thresh)
+{
+	if (id_table == n - 2)
+	{
+		int val = database[id_table].data[col].second;
+		auto cnt = database[id_table + 1].value2id.equal_range(val);
+		int count = std::distance(cnt.first, cnt.second);
+		database[id_table].weight[col] = count;
+		return count;
+	}
+	else
+	{
+		int val = database[id_table].data[col].second;
+		auto cnt = database[id_table + 1].value2id.equal_range(val);
+		double tot = 0;
+		for (auto iter = cnt.first; iter != cnt.second; iter++)
+		{
+			int index = iter->second;
+			if (walk_times[id_table + 1][index] < thresh)
+				get_weight(id_table + 1, index, thresh);
+			tot += database[id_table + 1].weight[index];
+		}
+		return tot;
+	}
+}
