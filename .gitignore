@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Lab5/data/popular_frequency.txt
+/Lab5/data/popular_user_table.txt
+/Lab5/data/twitter_combined.txt
+/Lab5/data/twitter_frequency.txt

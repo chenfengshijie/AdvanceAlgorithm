@@ -12,7 +12,7 @@ using std::vector;
 int stack_depth = 0; // 用于记录栈深度
 clock_t st, en;
 /// @brief generate uniform data
-/// @param n  nums of data
+/// @param n  num of data
 /// @param minVal range
 /// @param maxVal range
 /// @return data

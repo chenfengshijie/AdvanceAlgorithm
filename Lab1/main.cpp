@@ -1,9 +1,9 @@
-#include"lab1.h"
+ï»¿#include"lab1.h"
 #include <chrono>
 
 int main()
 {
-    // ¹¹½¨Ê¾ÀıÊı¾İ¼¯
+    // æ„å»ºç¤ºä¾‹æ•°æ®é›†
     auto start = std::chrono::high_resolution_clock::now();
    std::vector<std::unordered_set<int>>documents;
    int num_max =0;
@@ -16,6 +16,6 @@ int main()
    }
    auto end = std::chrono::high_resolution_clock::now();
    auto duration = std::chrono::duration_cast<std::chrono::seconds>(end - start);
-   std::cout << "³ÌĞòÖ´ĞĞÊ±¼äÎª " << duration.count() << " Ãë" << std::endl;
+   std::cout << "ç¨‹åºæ‰§è¡Œæ—¶é—´ä¸º " << duration.count() << " ç§’" << std::endl;
     return 0;
 }
