@@ -80,7 +80,7 @@ public:
 	};
 	~RandomWalkDataBase()=default;
 	void random_walk(int times);
-	void sample();
+	std::vector<int> sample(int thresh);
 private:
 	std::vector<std::vector<int>>walk_times;
 	double get_weight(int id_table,int col,int thresh);

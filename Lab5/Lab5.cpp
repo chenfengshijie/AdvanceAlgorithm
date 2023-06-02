@@ -153,7 +153,7 @@ double RandomWalkDataBase::walk_step(int id_table, int col, int method)
 	}
 }
 
-void RandomWalkDataBase::random_walk(int times)
+void RandomWalkDataBase::random_walk(int times,int thresh)
 {
 	for (int i = 0; i < times; i++)
 	{
@@ -161,6 +161,12 @@ void RandomWalkDataBase::random_walk(int times)
 		walk_times[0][choice]++;
 		walk_step(0, choice, 0);
 	}
+	for(int i=0;i<n;i++)
+	{
+		if(walk_times[0][i]<thresh)
+			get_weight(0,i,thresh);
+	}
+	return;
 }
 
 double RandomWalkDataBase::get_weight(int id_table, int col, int thresh)
@@ -171,6 +177,7 @@ double RandomWalkDataBase::get_weight(int id_table, int col, int thresh)
 		auto cnt = database[id_table + 1].value2id.equal_range(val);
 		int count = std::distance(cnt.first, cnt.second);
 		database[id_table].weight[col] = count;
+		walk_times[id_table][col] = INT_MAX;
 		return count;
 	}
 	else
@@ -185,6 +192,13 @@ double RandomWalkDataBase::get_weight(int id_table, int col, int thresh)
 				get_weight(id_table + 1, index, thresh);
 			tot += database[id_table + 1].weight[index];
 		}
+		database[id_table].weight[col] = tot;
+		walk_times[id_table][col] = INT_MAX;
 		return tot;
 	}
+}
+
+std::vector<int> RandomWalkDataBase::sample(int thresh)
+{
+	
 }
